@@ -1,11 +1,12 @@
-# Test Automation Project using Cucumber Selenium Java
+# Test Automation Project using Cucumber Selenium Java Allure
 
 Project is created for Backbase, as test assignment.
 
 
 ## Getting Started
 
-It is a Maven Java project that can be cloned, build and run directly.
+It is a Maven Java project that can be cloned, build and run directly. 
+Reporting is done using Allure.
 
 To build and run all test: 
 ```$xslt
@@ -20,6 +21,11 @@ To run single scenario. For example To run scenario for mandatory field check:
 ```$xslt
 mvn clean test -Dcucumber.options="src/test/resources --tags @emptyName"
 ``` 
+
+To generate allure reports after running the tests:
+```$xslt
+mvn allure:serve
+```
 
 ## Summary
 
