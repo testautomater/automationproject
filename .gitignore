@@ -2,4 +2,5 @@
 target/**
 .log/*
 .idea/*
-.iml
+*.iml
+*cucumber-html-reports/
