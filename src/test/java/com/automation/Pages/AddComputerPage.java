@@ -1,5 +1,6 @@
 package com.automation.Pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -11,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class NewComputerPage extends PageBase {
+public class AddComputerPage extends PageBase {
 
     @FindBy(how= How.ID, using="name")
     private WebElement inputComputerName;
@@ -27,6 +28,9 @@ public class NewComputerPage extends PageBase {
 
     @FindBy(how= How.CSS, using="[class='btn primary']")
     private WebElement createComputerButton;
+
+    @FindBy(how= How.CSS, using="[class='help-inline']")
+    private WebElement requiredField;
 
     protected WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 
@@ -58,6 +62,11 @@ public class NewComputerPage extends PageBase {
 
     public void submitCreateComputerButton(){
         createComputerButton.click();
+    }
+
+    public void reuiredFieldHelplineIsDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(requiredField));
+        Assert.assertTrue(requiredField.isDisplayed());
     }
 
 }

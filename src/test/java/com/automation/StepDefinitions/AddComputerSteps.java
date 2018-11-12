@@ -1,6 +1,6 @@
 package com.automation.StepDefinitions;
 
-import com.automation.Pages.NewComputerPage;
+import com.automation.Pages.AddComputerPage;
 import com.automation.Pages.PageBase;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 public class AddComputerSteps {
 
     PageBase pgBase = new PageBase();
-    NewComputerPage newComputerPage = new NewComputerPage();
+    AddComputerPage addComputerPage = new AddComputerPage();
 
     @Given("^User click on Add a new computer button$")
     public void userClickOnAddANewComputerButton() throws Throwable {
@@ -19,31 +19,36 @@ public class AddComputerSteps {
 
     @When("^User enters computer name \"([^\"]*)\"$")
     public void userEntersComputerName(String computerName) throws Throwable {
-        newComputerPage.inputComputerName(computerName);
+        addComputerPage.inputComputerName(computerName);
     }
 
     @And("^User enters Introduced date$")
     public void userEntersIntroducedDate() throws Throwable {
-        newComputerPage.setInputIntroducedDate();
+        addComputerPage.setInputIntroducedDate();
     }
 
     @And("^User enters discontinued date$")
     public void userEntersDiscontinuedDate() throws Throwable {
-        newComputerPage.setInputDiscontinuedDate();
+        addComputerPage.setInputDiscontinuedDate();
     }
 
     @And("^User selects a company name \"([^\"]*)\"$")
     public void userSelectsACompanyName(String companyName) throws Throwable {
-        newComputerPage.selectComputerCompany(companyName);
+        addComputerPage.selectComputerCompany(companyName);
     }
 
     @And("^User submit the form$")
     public void userSubmitTheForm() throws Throwable {
-       newComputerPage.submitCreateComputerButton();
+       addComputerPage.submitCreateComputerButton();
     }
 
     @Then("^Users is notified with success alert message$")
     public void usersIsNotifiedWithSuccessAlertMessage() throws Throwable {
         pgBase.successAlertMessageIsDisplayed();
+    }
+
+    @Then("^User is notified for required Computer name field$")
+    public void userIsNotifiedForRequiredComputerNameField() throws Throwable {
+        addComputerPage.reuiredFieldHelplineIsDisplayed();
     }
 }
